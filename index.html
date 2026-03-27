@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belgravia Management, LP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a1a4d;
+            --silver: #8b8b9e;
+            --dark-navy: #0d0d2b;
+            --charcoal: #2a2a2a;
+            --off-white: #fafafa;
+            --light-gray: #e8e8e8;
+            --gold: #b8936f;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--charcoal);
+            background: #ffffff;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(26, 26, 77, 0.06);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 38px;
+            height: 38px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-logo span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--navy);
+            transition: width 0.4s ease;
+        }
+
+        nav ul a:hover::after {
+            width: 100%;
+        }
+
+        nav ul a:hover {
+            color: var(--navy);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: 
+                linear-gradient(135deg, rgba(26, 26, 77, 0.02) 0%, rgba(255, 255, 255, 0) 100%),
+                #ffffff;
+            padding: 10rem 3rem 6rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(26, 26, 77, 0.1), transparent);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-logo-container {
+            margin-bottom: 3.5rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-logo-container img {
+            width: 90px;
+            height: 90px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.05em;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tagline {
+            font-size: 1.4rem;
+            color: var(--silver);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(26, 26, 77, 0.15), transparent);
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            max-width: 900px;
+            margin: 0 auto 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-number {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--silver);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* About */
+        #about {
+            background: #ffffff;
+        }
+
+        .about-content {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .about-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            padding-bottom: 5rem;
+            border-bottom: 1px solid rgba(26, 26, 77, 0.08);
+        }
+
+        .about-intro p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--charcoal);
+            font-weight: 400;
+        }
+
+        .about-intro p:first-child {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--navy);
+            line-height: 1.8;
+        }
+
+        .founder-highlight {
+            background: 
+                linear-gradient(135deg, rgba(26, 26, 77, 0.03) 0%, rgba(184, 147, 111, 0.03) 100%);
+            padding: 4rem;
+            border-left: 4px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-highlight::before {
+            content: '"';
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            font-size: 12rem;
+            color: rgba(26, 26, 77, 0.03);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .founder-highlight h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .founder-title {
+            font-size: 0.95rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .founder-highlight p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Investment Focus */
+        #investment {
+            background: var(--off-white);
+        }
+
+        .investment-intro {
+            max-width: 950px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .investment-intro p {
+            font-size: 1.2rem;
+            line-height: 1.85;
+            color: var(--charcoal);
+        }
+
+        .investment-areas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 5rem;
+        }
+
+        .investment-area {
+            background: #ffffff;
+            padding: 4rem;
+            border-radius: 2px;
+            border: 1px solid rgba(26, 26, 77, 0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .investment-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--navy), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .investment-area:hover::before {
+            transform: scaleX(1);
+        }
+
+        .investment-area:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(26, 26, 77, 0.08);
+        }
+
+        .investment-number {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .investment-area h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .investment-area p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        .investment-area p:last-child {
+            margin-bottom: 0;
+        }
+
+        .investment-area strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Contact */
+        #contact {
+            background: #ffffff;
+        }
+
+        .contact-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .contact-intro p {
+            font-size: 1.25rem;
+            line-height: 1.85;
+            color: var(--charcoal);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            padding: 4rem 0;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid rgba(26, 26, 77, 0.06);
+            background: var(--off-white);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #ffffff;
+            border-color: var(--navy);
+            transform: translateY(-4px);
+        }
+
+        .contact-item h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .contact-item a {
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: -0.01em;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        .contact-item p {
+            color: var(--charcoal);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-navy);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 4rem 3rem;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            border-top: 1px solid rgba(184, 147, 111, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .investment-areas {
+                grid-template-columns: 1fr;
+            }
+
+            .about-intro {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav .container {
+                padding: 1.5rem 2rem;
+            }
+
+            nav ul {
+                gap: 2rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 8rem 2rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 5rem 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .founder-highlight {
+                padding: 2.5rem;
+            }
+
+            .investment-area {
+                padding: 3rem 2.5rem;
+            }
+
+            .about-intro p:first-child {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .investment-area {
+                padding: 2.5rem 2rem;
+            }
+
+            .founder-highlight::before {
+                font-size: 8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#home" class="nav-logo">
+                <img src="https://cdn.brandfetch.io/idj7YJhTHb/w/400/h/400/theme/dark/icon.png?k=id64Mup7ac&t=1736293890897" alt="Belgravia Management">
+                <span>Belgravia Management, LP</span>
+            </a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#investment">Investment Focus</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-logo-container">
+                <img src="https://cdn.brandfetch.io/idj7YJhTHb/w/400/h/400/theme/dark/icon.png?k=id64Mup7ac&t=1736293890897" alt="Belgravia Management">
+            </div>
+            <h1>Belgravia Management</h1>
+            <p class="hero-tagline">Opportunistic investments with committed, long-term partners</p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- About -->
+    <section id="about">
+        <div class="section-header">
+            <span class="section-number">01 — About</span>
+            <h2>Building Partnerships That Endure</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-intro">
+                <p>
+                    Established in 1997, Belgravia Management is a Philadelphia-based single-family office founded by Ira Lubert.
+                </p>
+                <p>
+                    The firm makes opportunistic investments across various industries and asset classes, with a strong focus on direct investments in real estate, operating businesses, debt, and venture opportunities. We aspire to make meaningful, yet minority, investments with long-term partners.
+                </p>
+            </div>
+
+            <div class="founder-highlight">
+                <h3>Ira Lubert</h3>
+                <p class="founder-title">Founder</p>
+                <p>
+                    Mr. Lubert has over 40 years of experience in real estate and private equity. He is a Co-Founder of Lubert-Adler Partners, a real estate private equity firm, and has co-founded seven other private fund managers, including Independence Capital Partners, where he serves as Co-Founder and Chairman.
+                </p>
+                <p>
+                    Throughout his career, Mr. Lubert has been actively involved in both private and public corporate boards and has raised funds for numerous charitable causes. His board service includes the National Constitution Center, Penn State University (where he retired as Chair), and Jefferson Hospital, among others.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Investment Focus -->
+    <section id="investment">
+        <div class="section-header">
+            <span class="section-number">02 — Investment Focus</span>
+            <h2>Flexible Capital Across Markets</h2>
+        </div>
+        <div class="investment-intro">
+            <p>
+                Belgravia engages in a broad range of investment activities across the capital spectrum. Our primary areas of investment include real estate, direct equity and debt investments in private companies, and alternative investment vehicles such as private equity, venture capital, and hedge funds.
+            </p>
+        </div>
+        <div class="investment-areas">
+            <div class="investment-area">
+                <span class="investment-number">01</span>
+                <h3>Real Estate</h3>
+                <p>
+                    Belgravia is an active real estate investor, engaging in a wide range of transactions across the capital structure. We invest in self-managed and developer-backed projects, including ground-up development, vertical construction, stabilized properties, and other real estate opportunities.
+                </p>
+                <p>
+                    We have a strong preference for locations in and around the Northeast and Southeast United States, but remain flexible with our deployment strategy to capitalize on compelling opportunities.
+                </p>
+            </div>
+
+            <div class="investment-area">
+                <span class="investment-number">02</span>
+                <h3>Operating Businesses</h3>
+                <p>
+                    We specialize in providing flexible capital to support operating businesses across a wide range of industries, company stages, and security types. Our focus is on finding committed, ethical, and capable partners who prioritize conduct, reputation, and legacy.
+                </p>
+                <p>
+                    We strive to make meaningful, but minority, investments with these partners, providing both capital and strategic guidance to support long-term success.
+                </p>
+            </div>
+
+            <div class="investment-area">
+                <span class="investment-number">03</span>
+                <h3>Venture Capital</h3>
+                <p>
+                    With over 40 years of experience investing in venture companies, we leverage our extensive expertise and relationships to support the growth and success of our portfolio companies.
+                </p>
+                <p>
+                    We are most active in early to mid-stage companies, backing committed entrepreneurs with bold, disruptive ideas that have the potential to create meaningful market impact.
+                </p>
+            </div>
+
+            <div class="investment-area">
+                <span class="investment-number">04</span>
+                <h3>Alternative Investments</h3>
+                <p>
+                    Belgravia maintains a diverse portfolio of co-investments and alternative investment vehicles, including venture capital funds, private equity funds, and hedge funds.
+                </p>
+                <p>
+                    Our approach to fund investing allows us to capitalize on a wide range of opportunities, leveraging the expertise of specialized fund managers to achieve superior risk-adjusted returns.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="section-header">
+            <span class="section-number">03 — Contact</span>
+            <h2>Let's Discuss Opportunities</h2>
+        </div>
+        <div class="contact-content">
+            <div class="contact-intro">
+                <p>
+                    Our firm employs a strategic, long-term investment approach, emphasizing flexibility and adaptability. Our priority is finding committed, ethical, and capable partners who prioritize conduct, reputation, and legacy. If you have an opportunity that may fit our criteria, please feel free to contact us.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <a href="mailto:info@belgraviamanagement.com">info@belgraviamanagement.com</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Office</h3>
+                    <p>Philadelphia, PA</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <a href="tel:+12155551234">(215) 555-1234</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Belgravia Management, LP. All rights reserved.</p>
+    </footer>
+</body>
+</html>

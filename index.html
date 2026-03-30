@@ -205,8 +205,13 @@
         }
 
         /* Section Styles */
+        .section-wrapper {
+            width: 100%;
+        }
+        .section-wrapper.bg-white { background: #ffffff; }
+        .section-wrapper.bg-tint { background: var(--off-white); }
         section {
-            padding: 8rem 3rem;
+            padding: 9rem 3rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -245,9 +250,7 @@
         }
 
         /* About */
-        #about {
-            background: #ffffff;
-        }
+        #about { background: transparent; }
 
         .about-content {
             max-width: 950px;
@@ -324,9 +327,7 @@
         }
 
         /* Investment Focus */
-        #investment {
-            background: var(--off-white);
-        }
+        #investment { background: transparent; }
 
         .investment-intro {
             max-width: 950px;
@@ -413,9 +414,7 @@
         }
 
         /* Contact */
-        #contact {
-            background: #ffffff;
-        }
+        #contact { background: transparent; }
 
         .contact-content {
             max-width: 900px;
@@ -592,9 +591,7 @@
         }
     
         /* Portfolio */
-        #portfolio {
-            background: var(--off-white);
-        }
+        #portfolio { background: transparent; }
         .portfolio-stat {
             text-align: center;
             margin-bottom: 4rem;
@@ -674,9 +671,7 @@
         }
         
         /* Team */
-        #team {
-            background: #ffffff;
-        }
+        #team { background: transparent; }
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -781,8 +776,9 @@
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    
 
+    <div class="section-wrapper bg-white">
     <!-- About -->
     <section id="about">
         <div class="section-header">
@@ -795,7 +791,7 @@
                     Established in 1997, Belgravia Management is a Philadelphia-based single-family office founded by Ira Lubert.
                 </p>
                 <p>
-                    The firm makes opportunistic investments across various industries and asset classes, with a strong focus on direct investments in real estate, operating businesses, debt, and venture opportunities. We aspire to make meaningful, yet minority, investments with long-term partners.
+                    Belgravia makes opportunistic investments across various industries and asset classes, with a strong focus on direct investments in real estate, operating businesses, debt, and venture opportunities. Belgravia aspires to make meaningful, yet minority, investments with long-term partners.
                 </p>
             </div>
 
@@ -812,8 +808,11 @@
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    
 
+    </div>
+
+    <div class="section-wrapper bg-tint">
     <!-- Investment Focus -->
     <section id="investment">
         <div class="section-header">
@@ -822,7 +821,7 @@
         </div>
         <div class="investment-intro">
             <p>
-                Belgravia engages in a broad range of investment activities across the capital spectrum. Our primary areas of investment include real estate, direct equity and debt investments in private companies, and alternative investment vehicles such as private equity, venture capital, and hedge funds.
+                Belgravia engages in a broad range of investment activities across the capital spectrum. Primary areas of investment include real estate, direct equity and debt investments in private companies, and alternative investment vehicles such as private equity, venture capital, and hedge funds.
             </p>
         </div>
         <div class="investment-areas">
@@ -830,10 +829,10 @@
                 <span class="investment-number">01</span>
                 <h3>Real Estate</h3>
                 <p>
-                    Belgravia is an active real estate investor, engaging in a wide range of transactions across the capital structure. We invest in self-managed and developer-backed projects, including ground-up development, vertical construction, stabilized properties, and other real estate opportunities.
+                    Belgravia is an active real estate investor, engaging in a wide range of transactions across the capital structure. Belgravia invests in self-managed and developer-backed projects, including ground-up development, vertical construction, stabilized properties, and other real estate opportunities.
                 </p>
                 <p>
-                    We have a strong preference for locations in and around the Northeast and Southeast United States, but remain flexible with our deployment strategy to capitalize on compelling opportunities.
+                    Belgravia has a strong preference for locations in and around the Northeast and Southeast United States, but maintains flexibility in its deployment strategy to capitalize on compelling opportunities.
                 </p>
             </div>
 
@@ -841,10 +840,10 @@
                 <span class="investment-number">02</span>
                 <h3>Operating Businesses</h3>
                 <p>
-                    We specialize in providing flexible capital to support operating businesses across a wide range of industries, company stages, and security types. Our focus is on finding committed, ethical, and capable partners who prioritize conduct, reputation, and legacy.
+                    Belgravia specializes in providing flexible capital to support operating businesses across a wide range of industries, company stages, and security types. The focus is on finding committed, ethical, and capable partners who prioritize conduct, reputation, and legacy.
                 </p>
                 <p>
-                    We strive to make meaningful, but minority, investments with these partners, providing both capital and strategic guidance to support long-term success.
+                    Belgravia strives to make meaningful, but minority, investments with these partners, providing both capital and strategic guidance to support long-term success.
                 </p>
             </div>
 
@@ -852,10 +851,10 @@
                 <span class="investment-number">03</span>
                 <h3>Venture Capital</h3>
                 <p>
-                    With over 40 years of experience investing in venture companies, we leverage our extensive expertise and relationships to support the growth and success of our portfolio companies.
+                    With over 40 years of experience investing in venture companies, Belgravia leverages its extensive expertise and relationships to support the growth and success of its portfolio companies.
                 </p>
                 <p>
-                    We are most active in early to mid-stage companies, backing committed entrepreneurs with bold, disruptive ideas that have the potential to create meaningful market impact.
+                    Belgravia is most active in early to mid-stage companies, backing committed entrepreneurs with bold, disruptive ideas that have the potential to create meaningful market impact.
                 </p>
             </div>
 
@@ -866,12 +865,15 @@
                     Belgravia maintains a diverse portfolio of co-investments and alternative investment vehicles, including venture capital funds, private equity funds, and hedge funds.
                 </p>
                 <p>
-                    Our approach to fund investing allows us to capitalize on a wide range of opportunities, leveraging the expertise of specialized fund managers to achieve superior risk-adjusted returns.
+                    Belgravia's approach to fund investing capitalizes on a wide range of opportunities, leveraging the expertise of specialized fund managers to achieve superior risk-adjusted returns.
                 </p>
             </div>
         </div>
     </section>
 
+    </div>
+
+    <div class="section-wrapper bg-white">
     <!-- Portfolio -->
     <section id="portfolio">
         <div class="section-header">
@@ -894,12 +896,15 @@
             </a>
         </div>
     </section>
-    <div class="section-divider"></div>
+    
+    </div>
+
+    <div class="section-wrapper bg-tint">
     <!-- Team -->
     <section id="team">
         <div class="section-header">
             <span class="section-number">04 — Team</span>
-            <h2>Our Team</h2>
+            <h2>The Team</h2>
         </div>
         <div class="team-grid">
             <div class="team-card">
@@ -945,9 +950,12 @@
             </div>
         </div>
     </section>
-    <div class="section-divider"></div>
-    <div class="section-divider"></div>
+    
+    
 
+    </div>
+
+    <div class="section-wrapper bg-white">
     <!-- Contact -->
     <section id="contact">
         <div class="section-header">
@@ -957,7 +965,7 @@
         <div class="contact-content">
             <div class="contact-intro">
                 <p>
-                    Our firm employs a strategic, long-term investment approach, emphasizing flexibility and adaptability. Our priority is finding committed, ethical, and capable partners who prioritize conduct, reputation, and legacy. If you have an opportunity that may fit our criteria, please feel free to contact us.
+                    Belgravia employs a strategic, long-term investment approach, emphasizing flexibility and adaptability. The priority is finding committed, ethical, and capable partners who prioritize conduct, reputation, and legacy. If you have an opportunity that may align with Belgravia's investment criteria, please reach out.
                 </p>
             </div>
             <div class="contact-grid">
@@ -976,6 +984,8 @@
             </div>
         </div>
     </section>
+
+    </div>
 
     <!-- Footer -->
     <footer>

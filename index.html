@@ -667,6 +667,86 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* Team */
+        #team {
+            background: #ffffff;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        .team-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            border: 1px solid rgba(26, 26, 77, 0.06);
+            background: var(--off-white);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--navy), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(26, 26, 77, 0.08);
+            background: #ffffff;
+        }
+        .team-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: rgba(26, 26, 77, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.75rem;
+            border: 2px solid rgba(26, 26, 77, 0.1);
+        }
+        .team-avatar svg {
+            width: 56px;
+            height: 56px;
+            fill: rgba(26, 26, 77, 0.3);
+        }
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+        .team-title {
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        @media (max-width: 900px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         </style>
 </head>
 <body>
@@ -799,9 +879,9 @@
                 <img src="images/procapital-logo.png" alt="ProCapital">
                 <span class="company-name">ProCapital</span>
             </a>
-            <a href="https://alcenvironmental.com/services/lead-based-paint-services/" target="_blank" rel="noopener noreferrer" class="portfolio-card">
-                <img src="images/alc-logo.png" alt="ALC Lead Testing">
-                <span class="company-name">ALC Lead Testing</span>
+            <a href="https://www.gfhotels.com/" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+                <img src="images/gf-hotels-logo.png" alt="GF Hotels and Resorts">
+                <span class="company-name">GF Hotels &amp; Resorts</span>
             </a>
             <a href="#" class="portfolio-card">
                 <img src="images/snap-pizza-logo.png" alt="SNAP Pizza">
@@ -810,12 +890,64 @@
         </div>
     </section>
     <div class="section-divider"></div>
+    <!-- Team -->
+    <section id="team">
+        <div class="section-header">
+            <span class="section-number">04 — Team</span>
+            <h2>Our Team</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                </div>
+                <div class="team-name">Ira Lubert</div>
+                <div class="team-title">Founder</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                </div>
+                <div class="team-name">Jon Lubert</div>
+                
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                </div>
+                <div class="team-name">Robert Gorovitz</div>
+                
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                </div>
+                <div class="team-name">Michael Wigrizer</div>
+                
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                </div>
+                <div class="team-name">Artur Debek</div>
+                
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                </div>
+                <div class="team-name">Jared Yetter</div>
+                
+            </div>
+        </div>
+    </section>
+    <div class="section-divider"></div>
     <div class="section-divider"></div>
 
     <!-- Contact -->
     <section id="contact">
         <div class="section-header">
-            <span class="section-number">04 — Contact</span>
+            <span class="section-number">05 — Contact</span>
             <h2>Let's Discuss Opportunities</h2>
         </div>
         <div class="contact-content">

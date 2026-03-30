@@ -45,7 +45,7 @@
         }
 
         nav .container {
-            max-width: 1400px;
+    max-width: 1600px;
             margin: 0 auto;
             padding: 2rem 3rem;
             display: flex;
@@ -211,10 +211,10 @@
         .section-wrapper.bg-white { background: #ffffff; }
         .section-wrapper.bg-tint { background: var(--off-white); }
         section {
-            padding: 9rem 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    padding: 9rem clamp(1.5rem, 5vw, 5rem);
+    max-width: 1600px;
+    margin: 0 auto;
+  }
 
         .section-header {
             max-width: 900px;
@@ -346,6 +346,9 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 2.5rem;
             margin-top: 5rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .investment-area {
@@ -436,8 +439,8 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
             padding: 4rem 0;
         }
 
@@ -509,7 +512,17 @@
             }
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
+        .team-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    @media (max-width: 900px) {
             nav .container {
                 padding: 1.5rem 2rem;
             }
@@ -612,9 +625,12 @@
         }
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .portfolio-card {
             background: #ffffff;
@@ -674,8 +690,8 @@
         #team { background: transparent; }
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
             margin-top: 2rem;
         }
         .team-card {
@@ -760,6 +776,8 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#investment">Investment Focus</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#team">Team</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>

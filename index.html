@@ -118,10 +118,6 @@
         /* Hero */
         .hero {
             min-height: 100vh;
-            width: 100%;
-            max-width: 100% !important;
-            padding: 0 !important;
-            margin: 0 auto !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -221,7 +217,7 @@
         }
         .section-wrapper.bg-white { background: #ffffff; }
         .section-wrapper.bg-tint { background: var(--off-white); }
-        section {
+        section:not(#home) {
     padding: 9rem clamp(1.5rem, 5vw, 5rem);
     max-width: 1600px;
     margin: 0 auto;

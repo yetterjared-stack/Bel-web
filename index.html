@@ -699,103 +699,94 @@
         #team { background: transparent; }
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
             margin-top: 2rem;
-            max-width: 1200px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
         }
         .team-card {
-            text-align: center;
-            padding: 3rem 2.5rem; min-height: 420px;
-            border: 1px solid rgba(26, 26, 77, 0.06);
-            background: var(--off-white);
-            transition: all 0.4s ease;
+            background: transparent;
+            border: none;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .team-card::before { display: none; }
+        .team-card:hover { transform: none; box-shadow: none; background: transparent; }
+        .team-photo-wrap {
+            position: relative;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(to right, var(--blue), var(--blue-light));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-        .team-card:hover::before {
-            transform: scaleX(1);
-        }
-        .team-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(26, 26, 77, 0.08);
-            background: #ffffff;
-        }
-        .team-avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
+            padding-bottom: 110%;
+            overflow: hidden;
+            border-radius: 12px 12px 40% 40% / 12px 12px 18px 18px;
             background: var(--blue-tint);
+        }
+        .team-photo-wrap img,
+        .team-photo-placeholder {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .team-photo-placeholder {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.75rem;
-            border: 2px solid rgba(36, 87, 197, 0.2);
+            background: linear-gradient(160deg, #dde4f0 0%, #c8d3e8 100%);
         }
-        .team-avatar svg {
-            width: 56px;
-            height: 56px;
-            fill: rgba(255,255,255,0.4);
+        .team-photo-placeholder svg {
+            width: 80px;
+            height: 80px;
+            fill: rgba(27, 20, 100, 0.15);
+        }
+        .team-bio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(27, 20, 100, 0.0) 0%, rgba(27, 20, 100, 0.88) 40%);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem 1.75rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 12px 12px 40% 40% / 12px 12px 18px 18px;
+        }
+        .team-card:hover .team-bio-overlay { opacity: 1; }
+        .team-bio-overlay p {
+            color: rgba(255,255,255,0.92);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            font-weight: 400;
+            margin: 0;
+        }
+        .team-info {
+            padding: 1.25rem 0.25rem 0;
         }
         .team-name {
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--navy);
             letter-spacing: -0.02em;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
         }
         .team-title {
             font-size: 0.9rem;
-            color: var(--blue);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: none;
         }
-        .team-bio {
-            font-size: 0.95rem;
-            line-height: 1.75;
-            color: var(--silver);
-            margin-top: 1.25rem;
-            font-weight: 400;
-        }
-        .team-avatar-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1.75rem;
-            border: 2px solid rgba(36, 87, 197, 0.2);
-            display: block;
-        }
+        .team-bio { display: none; }
+        .team-avatar { display: none; }
+        .team-avatar svg { display: none; }
         @media (max-width: 900px) {
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .team-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
         }
         @media (max-width: 600px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav>
+            .team-grid { grid-template-columns: 1fr; }
+        }>
         <div class="container">
             <a href="#home" class="nav-logo">
                 <img src="images/bm-logo.png" alt="Belgravia Management">
@@ -993,35 +984,45 @@
             <h2>The Team</h2>
         </div>
         <div class="team-grid">
-            <div class="team-card">
-                <div class="team-avatar">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                            <div class="team-card">
+                    <div class="team-photo-wrap">
+                        <div class="team-photo-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Jon Lubert</div>
+                        <div class="team-title">Chairman</div>
+                    </div>
                 </div>
-                <div class="team-name">Jon Lubert</div>
-                <div class="team-title">Chairman</div>
-            </div>
-            <div class="team-card">
-                <div class="team-avatar">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                <div class="team-card">
+                    <div class="team-photo-wrap">
+                        <div class="team-photo-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Michael Wigrizer</div>
+                        <div class="team-title">Director of Investments</div>
+                    </div>
                 </div>
-                <div class="team-name">Michael Wigrizer</div>
-                <div class="team-title">Director of Investments</div>
-            </div>
-            <div class="team-card">
-                <div class="team-avatar">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                <div class="team-card">
+                    <div class="team-photo-wrap">
+                        <div class="team-photo-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Artur Debek</div>
+                        <div class="team-title">VP of Investments</div>
+                    </div>
                 </div>
-                <div class="team-name">Artur Debek</div>
-                <div class="team-title">VP of Investments</div>
-            </div>
-            <div class="team-card">
-                <div class="team-avatar">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
-                </div>
-                <div class="team-name">Jared Yetter</div>
-                <div class="team-title">Analyst, Investments</div>
-            </div>
-        </div>
+                <div class="team-card">
+                    <div class="team-photo-wrap">
+                        <div class="team-photo-placeholder"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+                        <div class="team-bio-overlay">
+                            <p>Jared is responsible for sourcing, underwriting and executing real estate and private equity investments as well as portfolio management and performance reporting. Previously he served on the Direct Equity Investments team at Hamilton Lane. He attended Indiana University Bloomington and graduated from the Kelley School of Business.</p>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">Jared Yetter</div>
+                        <div class="team-title">Analyst, Investments</div>
+                    </div>
+                </div>v>
     </section>
     
     

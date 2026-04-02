@@ -695,7 +695,77 @@
             }
         }
         
-        /* Team */
+        /* Real Estate */
+        #realestate { background: transparent; }
+        .realestate-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .realestate-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        }
+        .realestate-photo-wrap {
+            position: relative;
+            width: 100%;
+            padding-bottom: 62%;
+            overflow: hidden;
+        }
+        .realestate-photo-wrap img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .realestate-card:hover .realestate-photo-wrap img {
+            transform: scale(1.04);
+        }
+        .realestate-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.93);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            padding: 2.5rem;
+        }
+        .realestate-card:hover .realestate-overlay {
+            opacity: 1;
+        }
+        .realestate-overlay h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            text-align: center;
+        }
+        .realestate-overlay p {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: 0.03em;
+        }
+        @media (max-width: 768px) {
+            .realestate-grid { grid-template-columns: 1fr; }
+        }
+
+                /* Team */
         #team { background: transparent; }
         .team-grid {
             display: grid;
@@ -802,6 +872,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#investment">Investment Focus</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#realestate">Real Estate</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -982,11 +1053,42 @@
     
     </div>
 
+    <div class="section-wrapper bg-white">
+    <!-- Real Estate Portfolio -->
+    <section id="realestate">
+        <div class="section-header">
+            <span class="section-number">04 — Real Estate</span>
+            <h2>Real Estate Portfolio</h2>
+            <p class="section-subtitle">A selection of direct real estate investments across asset classes and geographies.</p>
+        </div>
+        <div class="realestate-grid">
+            <div class="realestate-card">
+                <div class="realestate-photo-wrap">
+                    <img src="images/soleta-golf-club.jpg" alt="Soleta Golf Club">
+                </div>
+                <div class="realestate-overlay">
+                    <h3>Soleta Golf Club</h3>
+                    <p>Lender</p>
+                </div>
+            </div>
+            <div class="realestate-card">
+                <div class="realestate-photo-wrap">
+                    <img src="images/frankford-grand.jpg" alt="Frankford Grand">
+                </div>
+                <div class="realestate-overlay">
+                    <h3>Frankford Grand</h3>
+                    <p>Lead Equity Investor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
     <div class="section-wrapper bg-tint">
     <!-- Team -->
     <section id="team">
         <div class="section-header">
-            <span class="section-number">04 — Team</span>
+            <span class="section-number">05 — Team</span>
             <h2>The Team</h2>
         </div>
         <div class="team-grid">
@@ -1048,7 +1150,7 @@
     <!-- Contact -->
     <section id="contact">
         <div class="section-header">
-            <span class="section-number">05 — Contact</span>
+            <span class="section-number">06 — Contact</span>
             <h2>Let's Discuss Opportunities</h2>
         </div>
         <div class="contact-content">

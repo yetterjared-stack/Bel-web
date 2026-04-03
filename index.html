@@ -765,8 +765,46 @@ h
             text-transform: uppercase;
             margin-top: 0.4rem;
         }
+        /* Mobile tap-to-reveal active state */
+        .realestate-card.active .realestate-overlay {
+            opacity: 1;
+        }
+        .realestate-card.active .realestate-photo-wrap img {
+            transform: scale(1.04);
+        }
+
         @media (max-width: 768px) {
             .realestate-grid { grid-template-columns: 1fr; }
+            .realestate-photo-wrap {
+                padding-bottom: 75%;
+            }
+            .realestate-card.active .realestate-photo-wrap {
+                padding-bottom: 0;
+                height: auto;
+                min-height: 0;
+            }
+            .realestate-card.active .realestate-photo-wrap img {
+                position: relative;
+                display: none;
+            }
+            .realestate-card.active .realestate-overlay {
+                position: relative;
+                opacity: 1;
+                padding: 1.5rem 1rem;
+            }
+            .realestate-overlay h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.3rem;
+            }
+            .realestate-overlay p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+                margin-top: 0.3rem;
+            }
+            .realestate-location {
+                font-size: 0.65rem;
+                margin-top: 0.15rem;
+            }
         }
 
                 /* Team */
@@ -899,7 +937,7 @@ h
     <!-- About -->
     <section id="about">
         <div class="section-header">
-            <span class="section-number">01 — About</span>
+            <span class="section-number">01 â About</span>
             <h2>Building Partnerships That Endure</h2>
         </div>
         <div class="about-content">
@@ -933,7 +971,7 @@ h
     <!-- Investment Focus -->
     <section id="investment">
         <div class="section-header">
-            <span class="section-number">02 — Investment Focus</span>
+            <span class="section-number">02 â Investment Focus</span>
             <h2>Flexible Capital Across Markets</h2>
         </div>
         <div class="investment-intro">
@@ -1014,7 +1052,7 @@ h
     <!-- Portfolio -->
     <section id="portfolio">
         <div class="section-header">
-            <span class="section-number">03 — Portfolio</span>
+            <span class="section-number">03 â Portfolio</span>
             <h2>Select Private Equity Investments</h2>
         </div>
         <div class="portfolio-grid">
@@ -1026,27 +1064,27 @@ h
                 <img src="images/gf-hotels-logo.png" alt="GF Hotels and Resorts">
                 <span class="company-name">GF Hotels &amp; Resorts</span>
             </a>
-            <a href="#" class="portfolio-card">
+            <a href="https://www.snapcustompizza.com/" target="_blank" rel="noopener noreferrer" class="portfolio-card">
                 <img src="images/snap-pizza-logo.png" alt="SNAP Pizza">
                 <span class="company-name">SNAP Pizza</span>
             </a>
-            <a href="#" class="portfolio-card">
+            <a href="https://www.hvcasino.com/" target="_blank" rel="noopener noreferrer" class="portfolio-card">
                 <img src="images/happy-valley-casino-logo.png" alt="Happy Valley Casino">
                 <span class="company-name">Happy Valley Casino</span>
             </a>
-            <a href="#" class="portfolio-card">
+            <a href="https://www.realamericanfreestyle.com/" target="_blank" rel="noopener noreferrer" class="portfolio-card">
                 <img src="images/raf-logo.png" alt="Real American Freestyle">
                 <span class="company-name">Real American Freestyle</span>
             </a>
-            <a href="#" class="portfolio-card">
+            <a href="https://aloha.com/pages/about-us-our-mission" target="_blank" rel="noopener noreferrer" class="portfolio-card">
                 <img src="images/aloha-logo.png" alt="Aloha">
                 <span class="company-name">Aloha</span>
             </a>
-            <a href="#" class="portfolio-card">
+            <a href="https://www.myota.io/about-us" target="_blank" rel="noopener noreferrer" class="portfolio-card">
                 <img src="images/myota-logo.png" alt="Myota">
                 <span class="company-name">Myota</span>
             </a>
-            <a href="#" class="portfolio-card">
+            <a href="https://www.moonvalleynurseries.com/" target="_blank" rel="noopener noreferrer" class="portfolio-card">
                 <img src="images/moon-valley-nurseries-logo.png" alt="Moon Valley Nurseries">
                 <span class="company-name">Moon Valley Nurseries</span>
             </a>
@@ -1089,12 +1127,32 @@ h
             </div>
             <div class="realestate-card">
                 <div class="realestate-photo-wrap">
-                    <img src="images/2300-market-street.jpg" alt="2300 Market Street">
+                    <img src="images/hilton-university-place.jpg" alt="Hilton University Place">
                 </div>
                 <div class="realestate-overlay">
-                    <h3>2300 Market Street</h3>
-                    <span class="realestate-location">Philadelphia, PA</span>
-                    <p>JV Partner</p>
+                    <h3>Hilton University Place</h3>
+                    <span class="realestate-location">Charlotte, NC</span>
+                    <p>Full-service hotel located in Charlotte's University Place submarket, offering close proximity to UNC Charlotte, major entertainment venues, and retail amenities, along with meeting space, on-site dining, and a broad amenity package.</p>
+                </div>
+            </div>
+            <div class="realestate-card">
+                <div class="realestate-photo-wrap">
+                    <img src="images/doubletree-city-center.jpg" alt="Doubletree City Center">
+                </div>
+                <div class="realestate-overlay">
+                    <h3>Doubletree City Center</h3>
+                    <span class="realestate-location">Charlotte, NC</span>
+                    <p>Full-service hotel located in the heart of Uptown Charlotte's entertainment and financial district, within walking distance of Spectrum Center, major Fortune 500 headquarters, restaurants, and key downtown attractions.</p>
+                </div>
+            </div>
+            <div class="realestate-card">
+                <div class="realestate-photo-wrap">
+                    <img src="images/250-century-parkway.jpg" alt="250 Century Parkway">
+                </div>
+                <div class="realestate-overlay">
+                    <h3>250 Century Parkway</h3>
+                    <span class="realestate-location">Mt. Laurel, NJ</span>
+                    <p>Class A office asset in Mount Laurel, New Jersey, offering high-quality space in a strategically located and amenity-rich submarket, with strong regional connectivity to Philadelphia and New York.</p>
                 </div>
             </div>
         </div>
@@ -1105,7 +1163,7 @@ h
     <!-- Team -->
     <section id="team">
         <div class="section-header">
-            <span class="section-number">04 — Team</span>
+            <span class="section-number">04 â Team</span>
             <h2>The Team</h2>
         </div>
         <div class="team-grid">
@@ -1191,7 +1249,7 @@ h
     <!-- Contact -->
     <section id="contact">
         <div class="section-header">
-            <span class="section-number">05 — Contact</span>
+            <span class="section-number">05 â Contact</span>
             <h2>Let's Discuss Opportunities</h2>
         </div>
         <div class="contact-content">
@@ -1223,5 +1281,28 @@ h
     <footer>
         <p>&copy; 2026 Belgravia Management, LP. All rights reserved.</p>
     </footer>
+    <script>
+        // Mobile tap-to-reveal for real estate cards
+        document.querySelectorAll('.realestate-card').forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                } else {
+                    document.querySelectorAll('.realestate-card.active').forEach(function(c) {
+                        c.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.realestate-card')) {
+                document.querySelectorAll('.realestate-card.active').forEach(function(c) {
+                    c.classList.remove('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

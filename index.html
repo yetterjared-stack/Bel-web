@@ -749,26 +749,20 @@ h<!DOCTYPE html>
         }
     
         /* ============================================================
-           INVESTMENT FOCUS — Split-screen redesign (if- prefix)
+           INVESTMENT FOCUS — Redesigned (if- prefix, scroll-driven)
            ============================================================ */
 
+        /* Section shell */
         #investment.if-section {
             padding: 0;
             max-width: none;
             margin: 0;
         }
 
-        /* Constrain split-screen to the same content band as all other sections */
-        .if-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 0 80px;
-        }
-
+        /* Centered header */
         .if-header {
             text-align: center;
-            padding: 96px 0 56px;
-            background: #F5F1EA;
+            padding: 96px 0 72px;
         }
 
         .if-section-mark {
@@ -795,147 +789,207 @@ h<!DOCTYPE html>
             color: #7A3838;
         }
 
+        .if-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
         .if-split {
             display: flex;
             border-top: 0.5px solid rgba(14,26,43,0.15);
-            background: #F5F1EA;
+            align-items: flex-start;
         }
 
         .if-index {
-            width: 360px;
+            width: 300px;
             flex-shrink: 0;
-            border-right: 0.5px solid rgba(14,26,43,0.15);
-            padding: 64px 40px;
             position: sticky;
-            top: 24px;
+            top: 120px;
+            padding: 48px 0;
             align-self: flex-start;
-            background: #F5F1EA;
         }
 
         .if-index-label {
             font-family: "Helvetica Neue", Arial, sans-serif;
-            font-size: 11px;
-            letter-spacing: 0.22em;
+            font-size: 10px;
+            letter-spacing: 0.28em;
             text-transform: uppercase;
             color: #7A3838;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             display: block;
+            padding-left: 2px;
         }
 
         .if-row {
             display: flex;
-            align-items: baseline;
-            gap: 16px;
-            padding: 14px 0;
-            border-bottom: 0.5px solid rgba(14,26,43,0.12);
+            align-items: center;
+            gap: 14px;
+            padding: 13px 16px 13px 2px;
             cursor: pointer;
-            opacity: 0.45;
-            transition: opacity 0.25s;
+            opacity: 0.38;
+            transition: opacity 0.3s ease;
             user-select: none;
+            position: relative;
         }
 
-        .if-row:hover { opacity: 0.85; }
+        .if-row::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%) scaleY(0);
+            width: 2px;
+            height: 60%;
+            background: #7A3838;
+            border-radius: 1px;
+            transition: transform 0.3s ease;
+            transform-origin: center;
+        }
+
+        .if-row:hover { opacity: 0.75; }
         .if-row.active { opacity: 1; }
+        .if-row.active::before { transform: translateY(-50%) scaleY(1); }
 
         .if-row-numeral {
             font-family: Georgia, "Times New Roman", serif;
             font-style: italic;
-            font-size: 13px;
+            font-size: 12px;
             color: #B8935A;
-            width: 24px;
+            width: 22px;
             flex-shrink: 0;
+            line-height: 1;
         }
 
         .if-row-name {
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 18px;
+            font-size: 16px;
             color: #0E1A2B;
+            line-height: 1.2;
         }
 
         .if-panels {
             flex: 1;
-            padding: 72px 0 72px 64px;
-            position: relative;
-            min-height: 520px;
+            padding: 0 0 0 80px;
         }
 
         .if-panel {
-            opacity: 0;
-            transform: translateY(12px);
-            position: absolute;
-            top: 72px;
-            left: 64px;
-            right: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            padding-top: 40px;
+            padding: 80px 0 100px;
+            border-bottom: 0.5px solid rgba(14,26,43,0.07);
+            opacity: 0.25;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .if-panel:last-child {
+            border-bottom: none;
+            padding-bottom: 80px;
         }
 
         .if-panel.active {
             opacity: 1;
             transform: translateY(0);
-            position: relative;
-            top: auto;
-            left: auto;
-            right: auto;
-            pointer-events: auto;
         }
 
         .if-panel-numeral {
             font-family: Georgia, "Times New Roman", serif;
             font-style: italic;
-            font-size: 13px;
+            font-size: 12px;
             color: #B8935A;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .if-panel h2 {
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 48px;
+            font-size: 44px;
             font-weight: 400;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
             color: #0E1A2B;
-            margin: 0 0 20px;
-            line-height: 1.1;
+            margin: 0 0 24px;
+            line-height: 1.05;
         }
 
         .if-panel-thesis {
             font-family: Georgia, "Times New Roman", serif;
             font-style: italic;
-            font-size: 22px;
-            line-height: 1.5;
+            font-size: 21px;
+            line-height: 1.55;
             color: #7A3838;
             max-width: none;
             margin: 0 0 28px;
+            padding-bottom: 28px;
+            border-bottom: 0.5px solid rgba(122,56,56,0.2);
         }
 
         .if-panel-body {
             font-family: Georgia, "Times New Roman", serif;
             font-size: 17px;
-            line-height: 1.7;
+            line-height: 1.75;
             color: #2B3544;
             max-width: none;
             margin: 0;
         }
 
+        @media (max-width: 1100px) {
+            .if-container { padding: 0 48px; }
+            .if-index { width: 240px; }
+            .if-panels { padding-left: 56px; }
+        }
+
         @media (max-width: 900px) {
-            .if-header { padding: 72px 0 48px; }
+            .if-header { padding: 64px 0 48px; }
             .if-headline { font-size: 40px; }
             .if-container { padding: 0 24px; }
             .if-split { flex-direction: column; }
             .if-index {
                 width: 100%;
                 position: static;
-                padding: 40px 0;
-                border-right: none;
-                border-bottom: 0.5px solid rgba(14,26,43,0.15);
+                padding: 24px 0 0;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                gap: 0;
+                border-bottom: 0.5px solid rgba(14,26,43,0.12);
             }
-            .if-panels { padding: 48px 0; min-height: auto; }
-            .if-panel { top: 48px; left: 0; right: 0; }
+            .if-index::-webkit-scrollbar { display: none; }
+            .if-index-label { display: none; }
+            .if-row {
+                flex-shrink: 0;
+                padding: 10px 18px 14px;
+                gap: 8px;
+                opacity: 0.45;
+                white-space: nowrap;
+                border-bottom: 2px solid transparent;
+            }
+            .if-row::before { display: none; }
+            .if-row.active { opacity: 1; border-bottom-color: #7A3838; margin-bottom: -1px; }
+            .if-row-numeral { font-size: 11px; width: auto; }
+            .if-row-name { font-size: 14px; }
+            .if-panels { padding: 0; width: 100%; }
+            .if-panel {
+                display: none;
+                opacity: 1;
+                transform: none;
+                padding: 48px 0 56px;
+                border-bottom: none;
+                transition: none;
+            }
+            .if-panel.active { display: block; }
+            .if-panel h2 { font-size: 32px; }
+            .if-panel-thesis { font-size: 18px; }
+            .if-panel-body { font-size: 16px; }
         }
 
-        </style>
+        @media (max-width: 480px) {
+            .if-headline { font-size: 30px; }
+            .if-panel h2 { font-size: 26px; }
+        }
+
+                </style>
     </head>
     <body>
     <nav>
@@ -967,51 +1021,24 @@ h<!DOCTYPE html>
 
     
 
-    <div class="section-wrapper" style="background:#F5F1EA;">
-    <!-- About -->
-    <section id="about" style="padding:0; max-width:none; margin:0;">
-        <div class="about-hero">
-            <span class="about-section-mark">01 &mdash; About</span>
-            <h2 class="about-headline">Building partnerships<br><em>that endure.</em></h2>
-            <p class="about-subhead">Established in 1997, Belgravia Management is a Philadelphia-based single-family office making opportunistic investments across real estate, operating businesses, debt, and venture opportunities &mdash; with a preference for meaningful, minority positions alongside committed, long-term partners.</p>
-        </div>
-        <div class="about-stat-banner">
-            <div class="about-stat-banner-inner">
-                <div class="about-stat-block">
-                    <div class="about-stat-number">1997</div>
-                    <div class="about-stat-caption">Established</div>
-                </div>
-                <div class="about-stat-divider"></div>
-                <div class="about-stat-block">
-                    <div class="about-stat-number">200<span class="about-stat-plus">+</span></div>
-                    <div class="about-stat-caption">Active investments</div>
-                </div>
-                <div class="about-stat-divider"></div>
-                <div class="about-stat-block">
-                    <div class="about-stat-number">50<span class="about-stat-plus">+</span></div>
-                    <div class="about-stat-caption">Years of experience</div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-    <div class="section-wrapper" style="background:#F5F1EA;">
+   <div class="section-wrapper" style="background:#F5F1EA;">
         <!-- Investment Focus -->
         <section id="investment" class="if-section">
 
-            <div class="if-header">
-                <span class="if-section-mark">02 &mdash; Investment Focus</span>
-                <h1 class="if-headline">
-                    Flexible capital<br>
-                    <em>across markets.</em>
-                </h1>
+            <div class="if-container">
+                <div class="if-header">
+                    <span class="if-section-mark">02 &mdash; Investment Focus</span>
+                    <h1 class="if-headline">
+                        Flexible capital<br>
+                        <em>across markets.</em>
+                    </h1>
+                </div>
             </div>
 
             <div class="if-container">
                 <div class="if-split">
 
-                    <!-- Left: index -->
+                    <!-- Left: sticky index -->
                     <nav class="if-index" aria-label="Investment verticals">
                         <span class="if-index-label">Verticals</span>
                         <div class="if-row active" data-panel="0">
@@ -1040,7 +1067,7 @@ h<!DOCTYPE html>
                         </div>
                     </nav>
 
-                    <!-- Right: panels -->
+                    <!-- Right: scroll-driven panels (all always in DOM) -->
                     <div class="if-panels">
 
                         <div class="if-panel active" data-panel="0">
@@ -1091,7 +1118,7 @@ h<!DOCTYPE html>
 
         </section>
     </div>
-    <div class="section-wrapper bg-white">
+     <div class="section-wrapper bg-white">
     <!-- Portfolio -->
     <section id="portfolio">
         <div class="section-header">
@@ -1352,20 +1379,49 @@ h<!DOCTYPE html>
         });
     
 
-    // Investment Focus — split-screen interaction
+    // Investment Focus — scroll-driven (desktop) + tap (mobile)
     (function () {
         var rows   = document.querySelectorAll('.if-row');
         var panels = document.querySelectorAll('.if-panel');
+
+        function setActive(idx) {
+            rows.forEach(function (r) { r.classList.remove('active'); });
+            panels.forEach(function (p) { p.classList.remove('active'); });
+            if (rows[idx])   rows[idx].classList.add('active');
+            if (panels[idx]) panels[idx].classList.add('active');
+        }
+
+        // Click/tap — works on all breakpoints
         rows.forEach(function (row) {
             row.addEventListener('click', function () {
-                var idx = this.getAttribute('data-panel');
-                rows.forEach(function (r)   { r.classList.remove('active'); });
-                panels.forEach(function (p) { p.classList.remove('active'); });
-                this.classList.add('active');
-                document.querySelector('.if-panel[data-panel="' + idx + '"]').classList.add('active');
+                var idx = parseInt(this.getAttribute('data-panel'), 10);
+                setActive(idx);
+                // Mobile: scroll active tab into center
+                if (window.innerWidth <= 900) {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
             });
         });
+
+        // Desktop: IntersectionObserver drives the active state as user scrolls
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                if (window.innerWidth <= 900) return;
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var idx = parseInt(entry.target.getAttribute('data-panel'), 10);
+                        rows.forEach(function (r) { r.classList.remove('active'); });
+                        panels.forEach(function (p) { p.classList.remove('active'); });
+                        if (rows[idx]) rows[idx].classList.add('active');
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+            panels.forEach(function (p) { io.observe(p); });
+        }
     }());
+    
     </script>
 </body>
 </html>

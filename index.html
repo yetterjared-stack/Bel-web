@@ -749,17 +749,15 @@ h<!DOCTYPE html>
         }
     
         /* ============================================================
-           INVESTMENT FOCUS — Redesigned (if- prefix, scroll-driven)
+           INVESTMENT FOCUS — Click-driven split panel (if- prefix)
            ============================================================ */
 
-        /* Section shell */
         #investment.if-section {
             padding: 0;
             max-width: none;
             margin: 0;
         }
 
-        /* Centered header */
         .if-header {
             text-align: center;
             padding: 96px 0 72px;
@@ -795,19 +793,19 @@ h<!DOCTYPE html>
             padding: 0 80px;
         }
 
+        /* Both columns scroll naturally with the page — no sticky */
         .if-split {
             display: flex;
             border-top: 0.5px solid rgba(14,26,43,0.15);
-            align-items: flex-start;
+            align-items: stretch;
         }
 
+        /* LEFT index — plain flow, scrolls with content */
         .if-index {
             width: 300px;
             flex-shrink: 0;
-            position: sticky;
-            top: 120px;
-            padding: 48px 0;
-            align-self: flex-start;
+            padding: 56px 40px 56px 0;
+            border-right: 0.5px solid rgba(14,26,43,0.12);
         }
 
         .if-index-label {
@@ -818,36 +816,38 @@ h<!DOCTYPE html>
             color: #7A3838;
             margin-bottom: 24px;
             display: block;
-            padding-left: 2px;
         }
 
         .if-row {
             display: flex;
             align-items: center;
             gap: 14px;
-            padding: 13px 16px 13px 2px;
+            padding: 14px 0;
+            border-bottom: 0.5px solid rgba(14,26,43,0.08);
             cursor: pointer;
-            opacity: 0.38;
-            transition: opacity 0.3s ease;
+            opacity: 0.4;
+            transition: opacity 0.25s ease;
             user-select: none;
             position: relative;
         }
 
+        .if-row:last-child { border-bottom: none; }
+
         .if-row::before {
             content: '';
             position: absolute;
-            left: -20px;
+            left: -41px;
             top: 50%;
             transform: translateY(-50%) scaleY(0);
             width: 2px;
-            height: 60%;
+            height: 55%;
             background: #7A3838;
             border-radius: 1px;
-            transition: transform 0.3s ease;
+            transition: transform 0.28s ease;
             transform-origin: center;
         }
 
-        .if-row:hover { opacity: 0.75; }
+        .if-row:hover { opacity: 0.72; }
         .if-row.active { opacity: 1; }
         .if-row.active::before { transform: translateY(-50%) scaleY(1); }
 
@@ -858,7 +858,6 @@ h<!DOCTYPE html>
             color: #B8935A;
             width: 22px;
             flex-shrink: 0;
-            line-height: 1;
         }
 
         .if-row-name {
@@ -868,27 +867,36 @@ h<!DOCTYPE html>
             line-height: 1.2;
         }
 
+        /* RIGHT: click-swapped panel viewer */
         .if-panels {
             flex: 1;
-            padding: 0 0 0 80px;
+            padding: 56px 0 56px 72px;
+            position: relative;
+            min-height: 480px;
         }
 
+        /* Inactive: absolutely positioned, invisible */
         .if-panel {
-            padding: 80px 0 100px;
-            border-bottom: 0.5px solid rgba(14,26,43,0.07);
-            opacity: 0.25;
-            transform: translateY(16px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            position: absolute;
+            top: 56px;
+            left: 72px;
+            right: 0;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: opacity 0.38s ease, transform 0.38s ease;
+            padding-top: 40px;
         }
 
-        .if-panel:last-child {
-            border-bottom: none;
-            padding-bottom: 80px;
-        }
-
+        /* Active: back in normal flow, visible */
         .if-panel.active {
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
             opacity: 1;
             transform: translateY(0);
+            pointer-events: auto;
         }
 
         .if-panel-numeral {
@@ -902,11 +910,11 @@ h<!DOCTYPE html>
 
         .if-panel h2 {
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 44px;
+            font-size: 48px;
             font-weight: 400;
             letter-spacing: -0.02em;
             color: #0E1A2B;
-            margin: 0 0 24px;
+            margin: 0 0 22px;
             line-height: 1.05;
         }
 
@@ -918,8 +926,8 @@ h<!DOCTYPE html>
             color: #7A3838;
             max-width: none;
             margin: 0 0 28px;
-            padding-bottom: 28px;
-            border-bottom: 0.5px solid rgba(122,56,56,0.2);
+            padding-bottom: 26px;
+            border-bottom: 0.5px solid rgba(122,56,56,0.18);
         }
 
         .if-panel-body {
@@ -933,8 +941,9 @@ h<!DOCTYPE html>
 
         @media (max-width: 1100px) {
             .if-container { padding: 0 48px; }
-            .if-index { width: 240px; }
+            .if-index { width: 260px; }
             .if-panels { padding-left: 56px; }
+            .if-panel { left: 56px; }
         }
 
         @media (max-width: 900px) {
@@ -944,48 +953,40 @@ h<!DOCTYPE html>
             .if-split { flex-direction: column; }
             .if-index {
                 width: 100%;
-                position: static;
-                padding: 24px 0 0;
+                padding: 0;
+                border-right: none;
+                border-bottom: 0.5px solid rgba(14,26,43,0.12);
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
                 display: flex;
                 flex-direction: row;
-                flex-wrap: nowrap;
                 gap: 0;
-                border-bottom: 0.5px solid rgba(14,26,43,0.12);
             }
             .if-index::-webkit-scrollbar { display: none; }
             .if-index-label { display: none; }
             .if-row {
                 flex-shrink: 0;
-                padding: 10px 18px 14px;
+                padding: 12px 18px 14px;
                 gap: 8px;
+                border-bottom: 2px solid transparent;
                 opacity: 0.45;
                 white-space: nowrap;
-                border-bottom: 2px solid transparent;
+                margin-bottom: -1px;
             }
             .if-row::before { display: none; }
-            .if-row.active { opacity: 1; border-bottom-color: #7A3838; margin-bottom: -1px; }
+            .if-row.active { opacity: 1; border-bottom-color: #7A3838; }
             .if-row-numeral { font-size: 11px; width: auto; }
             .if-row-name { font-size: 14px; }
-            .if-panels { padding: 0; width: 100%; }
-            .if-panel {
-                display: none;
-                opacity: 1;
-                transform: none;
-                padding: 48px 0 56px;
-                border-bottom: none;
-                transition: none;
-            }
-            .if-panel.active { display: block; }
+            .if-panels { padding: 0; min-height: 360px; }
+            .if-panel { top: 0; left: 0; right: 0; padding-top: 40px; }
             .if-panel h2 { font-size: 32px; }
             .if-panel-thesis { font-size: 18px; }
             .if-panel-body { font-size: 16px; }
         }
 
         @media (max-width: 480px) {
-            .if-headline { font-size: 30px; }
+            .if-headline { font-size: 32px; }
             .if-panel h2 { font-size: 26px; }
         }
 
@@ -1038,7 +1039,7 @@ h<!DOCTYPE html>
             <div class="if-container">
                 <div class="if-split">
 
-                    <!-- Left: sticky index -->
+                    <!-- Left: clickable index, scrolls with page -->
                     <nav class="if-index" aria-label="Investment verticals">
                         <span class="if-index-label">Verticals</span>
                         <div class="if-row active" data-panel="0">
@@ -1067,7 +1068,7 @@ h<!DOCTYPE html>
                         </div>
                     </nav>
 
-                    <!-- Right: scroll-driven panels (all always in DOM) -->
+                    <!-- Right: click-swapped panel viewer -->
                     <div class="if-panels">
 
                         <div class="if-panel active" data-panel="0">
@@ -1118,7 +1119,7 @@ h<!DOCTYPE html>
 
         </section>
     </div>
-     <div class="section-wrapper bg-white">
+    <div class="section-wrapper bg-white">
     <!-- Portfolio -->
     <section id="portfolio">
         <div class="section-header">
@@ -1379,48 +1380,26 @@ h<!DOCTYPE html>
         });
     
 
-    // Investment Focus — scroll-driven (desktop) + tap (mobile)
+    // Investment Focus — click-driven panel swap
     (function () {
         var rows   = document.querySelectorAll('.if-row');
         var panels = document.querySelectorAll('.if-panel');
 
-        function setActive(idx) {
-            rows.forEach(function (r) { r.classList.remove('active'); });
-            panels.forEach(function (p) { p.classList.remove('active'); });
-            if (rows[idx])   rows[idx].classList.add('active');
-            if (panels[idx]) panels[idx].classList.add('active');
-        }
-
-        // Click/tap — works on all breakpoints
         rows.forEach(function (row) {
             row.addEventListener('click', function () {
-                var idx = parseInt(this.getAttribute('data-panel'), 10);
-                setActive(idx);
-                // Mobile: scroll active tab into center
+                var idx = this.getAttribute('data-panel');
+                rows.forEach(function (r)   { r.classList.remove('active'); });
+                panels.forEach(function (p) { p.classList.remove('active'); });
+                this.classList.add('active');
+                document.querySelector('.if-panel[data-panel="' + idx + '"]').classList.add('active');
+                // Mobile: scroll active tab into view
                 if (window.innerWidth <= 900) {
                     this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 }
             });
         });
-
-        // Desktop: IntersectionObserver drives the active state as user scrolls
-        if ('IntersectionObserver' in window) {
-            var io = new IntersectionObserver(function (entries) {
-                if (window.innerWidth <= 900) return;
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var idx = parseInt(entry.target.getAttribute('data-panel'), 10);
-                        rows.forEach(function (r) { r.classList.remove('active'); });
-                        panels.forEach(function (p) { p.classList.remove('active'); });
-                        if (rows[idx]) rows[idx].classList.add('active');
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
-
-            panels.forEach(function (p) { io.observe(p); });
-        }
     }());
+    
     
     </script>
 </body>

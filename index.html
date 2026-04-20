@@ -452,6 +452,47 @@ h<!DOCTYPE html>
         }
 
         
+        /* Portfolio section banners */
+        .pf-banner {
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            width: 100vw;
+            background: #0E1A2B;
+            padding: 48px 0;
+            text-align: center;
+            margin-top: -2rem;
+            margin-bottom: 4rem;
+        }
+        .pf-banner + .portfolio-grid,
+        .pf-banner + .realestate-grid {
+            margin-top: 3rem;
+        }
+        .pf-banner-label {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #B8935A;
+            display: block;
+            margin-bottom: 18px;
+        }
+        .pf-banner h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 4.25rem;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            color: #F5F1EA;
+            margin: 0;
+            line-height: 1.1;
+        }
+        @media (max-width: 900px) {
+            .pf-banner { padding: 36px 24px; }
+            .pf-banner h2 { font-size: 2.4rem; }
+        }
+
         /* Portfolio */
         #portfolio { background: transparent; }
         .portfolio-stat {
@@ -1150,8 +1191,8 @@ h<!DOCTYPE html>
     <div class="section-wrapper bg-white">
     <!-- Portfolio -->
     <section id="portfolio">
-        <div class="section-header">
-            <span class="section-number">03 &mdash; Portfolio</span>
+        <div class="pf-banner">
+            <span class="pf-banner-label">03 &mdash; Portfolio</span>
             <h2>Select Private Equity Investments</h2>
         </div>
         <div class="portfolio-grid">
@@ -1193,9 +1234,8 @@ h<!DOCTYPE html>
             </a>
         </div>
 
-        <div class="section-header" style="margin-top:6rem;">
+        <div class="pf-banner" style="margin-top:4rem;">
             <h2>Select Real Estate Investments</h2>
-            <p class="section-subtitle"></p>
         </div>
         <div class="realestate-grid">
             <div class="realestate-card">

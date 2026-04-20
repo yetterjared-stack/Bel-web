@@ -32,7 +32,7 @@ h<!DOCTYPE html>
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             color: var(--charcoal);
-            background: #ffffff;
+            background: #F5F1EA;
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         overflow-wrap: break-word;
@@ -221,7 +221,7 @@ h<!DOCTYPE html>
         .section-wrapper {
             width: 100%;
         }
-        .section-wrapper.bg-white { background: #ffffff; }
+        .section-wrapper.bg-white { background: transparent; }
         .section-wrapper.bg-tint { background: var(--logo-blue); } .section-wrapper.bg-tint h2, .section-wrapper.bg-tint .section-subtitle { color: #ffffff; } .section-wrapper.bg-tint .section-number { color: rgba(255,255,255,0.7); } .section-wrapper.bg-tint .section-number::before, .section-wrapper.bg-tint .section-number::after { background: rgba(255,255,255,0.5); } .section-wrapper.bg-tint .section-header h2::after { background: var(--gold); } .section-wrapper.bg-tint .investment-intro p { color: rgba(255,255,255,0.85); }
         /* Investment Areas */
         .investment-areas {
@@ -758,9 +758,16 @@ h<!DOCTYPE html>
             margin: 0;
         }
 
+        /* Constrain split-screen to the same content band as all other sections */
+        .if-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
         .if-header {
             text-align: center;
-            padding: 96px 48px 56px;
+            padding: 96px 0 56px;
             background: #F5F1EA;
         }
 
@@ -847,7 +854,7 @@ h<!DOCTYPE html>
 
         .if-panels {
             flex: 1;
-            padding: 72px 64px;
+            padding: 72px 0 72px 64px;
             position: relative;
             min-height: 520px;
         }
@@ -858,7 +865,7 @@ h<!DOCTYPE html>
             position: absolute;
             top: 72px;
             left: 64px;
-            right: 64px;
+            right: 0;
             pointer-events: none;
             transition: opacity 0.4s ease, transform 0.4s ease;
             padding-top: 40px;
@@ -899,7 +906,7 @@ h<!DOCTYPE html>
             font-size: 22px;
             line-height: 1.5;
             color: #7A3838;
-            max-width: 620px;
+            max-width: none;
             margin: 0 0 28px;
         }
 
@@ -908,23 +915,24 @@ h<!DOCTYPE html>
             font-size: 17px;
             line-height: 1.7;
             color: #2B3544;
-            max-width: 620px;
+            max-width: none;
             margin: 0;
         }
 
         @media (max-width: 900px) {
-            .if-header { padding: 72px 24px 48px; }
+            .if-header { padding: 72px 0 48px; }
             .if-headline { font-size: 40px; }
+            .if-container { padding: 0 24px; }
             .if-split { flex-direction: column; }
             .if-index {
                 width: 100%;
                 position: static;
-                padding: 40px 24px;
+                padding: 40px 0;
                 border-right: none;
                 border-bottom: 0.5px solid rgba(14,26,43,0.15);
             }
-            .if-panels { padding: 48px 24px; min-height: auto; }
-            .if-panel { top: 48px; left: 24px; right: 24px; }
+            .if-panels { padding: 48px 0; min-height: auto; }
+            .if-panel { top: 48px; left: 0; right: 0; }
         }
 
         </style>
@@ -1000,84 +1008,86 @@ h<!DOCTYPE html>
                 </h1>
             </div>
 
-            <div class="if-split">
+            <div class="if-container">
+                <div class="if-split">
 
-                <!-- Left: index -->
-                <nav class="if-index" aria-label="Investment verticals">
-                    <span class="if-index-label">Verticals</span>
-                    <div class="if-row active" data-panel="0">
-                        <span class="if-row-numeral">I</span>
-                        <span class="if-row-name">Real Estate</span>
-                    </div>
-                    <div class="if-row" data-panel="1">
-                        <span class="if-row-numeral">II</span>
-                        <span class="if-row-name">Operating Businesses</span>
-                    </div>
-                    <div class="if-row" data-panel="2">
-                        <span class="if-row-numeral">III</span>
-                        <span class="if-row-name">Venture Capital</span>
-                    </div>
-                    <div class="if-row" data-panel="3">
-                        <span class="if-row-numeral">IV</span>
-                        <span class="if-row-name">Alternative Investments</span>
-                    </div>
-                    <div class="if-row" data-panel="4">
-                        <span class="if-row-numeral">V</span>
-                        <span class="if-row-name">Public Equities</span>
-                    </div>
-                    <div class="if-row" data-panel="5">
-                        <span class="if-row-numeral">VI</span>
-                        <span class="if-row-name">Debt Investments</span>
-                    </div>
-                </nav>
+                    <!-- Left: index -->
+                    <nav class="if-index" aria-label="Investment verticals">
+                        <span class="if-index-label">Verticals</span>
+                        <div class="if-row active" data-panel="0">
+                            <span class="if-row-numeral">I</span>
+                            <span class="if-row-name">Real Estate</span>
+                        </div>
+                        <div class="if-row" data-panel="1">
+                            <span class="if-row-numeral">II</span>
+                            <span class="if-row-name">Operating Businesses</span>
+                        </div>
+                        <div class="if-row" data-panel="2">
+                            <span class="if-row-numeral">III</span>
+                            <span class="if-row-name">Venture Capital</span>
+                        </div>
+                        <div class="if-row" data-panel="3">
+                            <span class="if-row-numeral">IV</span>
+                            <span class="if-row-name">Alternative Investments</span>
+                        </div>
+                        <div class="if-row" data-panel="4">
+                            <span class="if-row-numeral">V</span>
+                            <span class="if-row-name">Public Equities</span>
+                        </div>
+                        <div class="if-row" data-panel="5">
+                            <span class="if-row-numeral">VI</span>
+                            <span class="if-row-name">Debt Investments</span>
+                        </div>
+                    </nav>
 
-                <!-- Right: panels -->
-                <div class="if-panels">
+                    <!-- Right: panels -->
+                    <div class="if-panels">
 
-                    <div class="if-panel active" data-panel="0">
-                        <span class="if-panel-numeral">I</span>
-                        <h2>Real Estate</h2>
-                        <p class="if-panel-thesis">Active across the capital structure, from vertical construction to stabilized assets.</p>
-                        <p class="if-panel-body">Belgravia engages in a wide range of real estate transactions, investing in self-managed and developer-backed projects including vertical construction, stabilized properties, and other opportunities. The firm maintains a preference for the Northeast and Southeast United States, while remaining flexible to capitalize on compelling opportunities wherever they emerge.</p>
-                    </div>
+                        <div class="if-panel active" data-panel="0">
+                            <span class="if-panel-numeral">I</span>
+                            <h2>Real Estate</h2>
+                            <p class="if-panel-thesis">Active across the capital structure, from vertical construction to stabilized assets.</p>
+                            <p class="if-panel-body">Belgravia engages in a wide range of real estate transactions, investing in self-managed and developer-backed projects including vertical construction, stabilized properties, and other opportunities. The firm maintains a preference for the Northeast and Southeast United States, while remaining flexible to capitalize on compelling opportunities wherever they emerge.</p>
+                        </div>
 
-                    <div class="if-panel" data-panel="1">
-                        <span class="if-panel-numeral">II</span>
-                        <h2>Operating Businesses</h2>
-                        <p class="if-panel-thesis">Meaningful, minority capital for operators who prioritize conduct, reputation, and legacy.</p>
-                        <p class="if-panel-body">Belgravia provides flexible capital to support operating businesses across a wide range of industries and company stages. We back committed, ethical, and capable partners with both capital and strategic guidance &mdash; but our structural preference is minority: supporting operators, not replacing them.</p>
-                    </div>
+                        <div class="if-panel" data-panel="1">
+                            <span class="if-panel-numeral">II</span>
+                            <h2>Operating Businesses</h2>
+                            <p class="if-panel-thesis">Meaningful, minority capital for operators who prioritize conduct, reputation, and legacy.</p>
+                            <p class="if-panel-body">Belgravia provides flexible capital to support operating businesses across a wide range of industries and company stages. We back committed, ethical, and capable partners with both capital and strategic guidance &mdash; but our structural preference is minority: supporting operators, not replacing them.</p>
+                        </div>
 
-                    <div class="if-panel" data-panel="2">
-                        <span class="if-panel-numeral">III</span>
-                        <h2>Venture Capital</h2>
-                        <p class="if-panel-thesis">Early and mid-stage conviction, drawn from five decades of operator relationships.</p>
-                        <p class="if-panel-body">With over 50 years of experience investing in venture companies, Belgravia leverages its expertise and relationships to support portfolio companies through growth. We are most active in early to mid-stage companies, backing entrepreneurs with bold, disruptive ideas and the discipline to execute them.</p>
-                    </div>
+                        <div class="if-panel" data-panel="2">
+                            <span class="if-panel-numeral">III</span>
+                            <h2>Venture Capital</h2>
+                            <p class="if-panel-thesis">Early and mid-stage conviction, drawn from five decades of operator relationships.</p>
+                            <p class="if-panel-body">With over 50 years of experience investing in venture companies, Belgravia leverages its expertise and relationships to support portfolio companies through growth. We are most active in early to mid-stage companies, backing entrepreneurs with bold, disruptive ideas and the discipline to execute them.</p>
+                        </div>
 
-                    <div class="if-panel" data-panel="3">
-                        <span class="if-panel-numeral">IV</span>
-                        <h2>Alternative Investments</h2>
-                        <p class="if-panel-thesis">A diverse book of co-investments and fund commitments alongside specialized managers.</p>
-                        <p class="if-panel-body">Belgravia maintains a diverse portfolio of co-investments and alternative investment vehicles &mdash; including venture capital, private equity, and hedge funds. This approach leverages the expertise of specialized managers to capture a broader opportunity set and pursue superior risk-adjusted returns.</p>
-                    </div>
+                        <div class="if-panel" data-panel="3">
+                            <span class="if-panel-numeral">IV</span>
+                            <h2>Alternative Investments</h2>
+                            <p class="if-panel-thesis">A diverse book of co-investments and fund commitments alongside specialized managers.</p>
+                            <p class="if-panel-body">Belgravia maintains a diverse portfolio of co-investments and alternative investment vehicles &mdash; including venture capital, private equity, and hedge funds. This approach leverages the expertise of specialized managers to capture a broader opportunity set and pursue superior risk-adjusted returns.</p>
+                        </div>
 
-                    <div class="if-panel" data-panel="4">
-                        <span class="if-panel-numeral">V</span>
-                        <h2>Public Equities</h2>
-                        <p class="if-panel-thesis">Concentrated positions in blue-chip franchises, held with patience across cycles.</p>
-                        <p class="if-panel-body">Belgravia maintains an active public equities portfolio, pursuing both opportunistic investments and a concentrated book of blue-chip stocks with long-term appreciation potential. We seek compelling risk-adjusted returns across market conditions, grounded in deep fundamental analysis and a disciplined framework.</p>
-                    </div>
+                        <div class="if-panel" data-panel="4">
+                            <span class="if-panel-numeral">V</span>
+                            <h2>Public Equities</h2>
+                            <p class="if-panel-thesis">Concentrated positions in blue-chip franchises, held with patience across cycles.</p>
+                            <p class="if-panel-body">Belgravia maintains an active public equities portfolio, pursuing both opportunistic investments and a concentrated book of blue-chip stocks with long-term appreciation potential. We seek compelling risk-adjusted returns across market conditions, grounded in deep fundamental analysis and a disciplined framework.</p>
+                        </div>
 
-                    <div class="if-panel" data-panel="5">
-                        <span class="if-panel-numeral">VI</span>
-                        <h2>Debt Investments</h2>
-                        <p class="if-panel-thesis">Traditional and bespoke financing, underwritten across the capital structure.</p>
-                        <p class="if-panel-body">Belgravia is an active lender across asset classes, deploying both traditional and flexible capital solutions. We provide senior secured loans and other traditional structures, as well as creative financing for developers, operating businesses, and private equity funds &mdash; capturing attractive yields while supporting partners who require bespoke structures.</p>
-                    </div>
+                        <div class="if-panel" data-panel="5">
+                            <span class="if-panel-numeral">VI</span>
+                            <h2>Debt Investments</h2>
+                            <p class="if-panel-thesis">Traditional and bespoke financing, underwritten across the capital structure.</p>
+                            <p class="if-panel-body">Belgravia is an active lender across asset classes, deploying both traditional and flexible capital solutions. We provide senior secured loans and other traditional structures, as well as creative financing for developers, operating businesses, and private equity funds &mdash; capturing attractive yields while supporting partners who require bespoke structures.</p>
+                        </div>
 
-                </div><!-- /.if-panels -->
-            </div><!-- /.if-split -->
+                    </div><!-- /.if-panels -->
+                </div><!-- /.if-split -->
+            </div><!-- /.if-container -->
 
         </section>
     </div>

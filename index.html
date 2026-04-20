@@ -222,7 +222,7 @@ h<!DOCTYPE html>
             width: 100%;
         }
         .section-wrapper.bg-white { background: transparent; }
-        .section-wrapper.bg-tint { background: var(--logo-blue); } .section-wrapper.bg-tint h2, .section-wrapper.bg-tint .section-subtitle { color: #ffffff; } .section-wrapper.bg-tint .section-number { color: rgba(255,255,255,0.7); } .section-wrapper.bg-tint .section-number::before, .section-wrapper.bg-tint .section-number::after { background: rgba(255,255,255,0.5); } .section-wrapper.bg-tint .section-header h2::after { background: var(--gold); } .section-wrapper.bg-tint .investment-intro p { color: rgba(255,255,255,0.85); }
+        .section-wrapper.bg-tint { background: #F5F1EA; } .section-wrapper.bg-tint h2, .section-wrapper.bg-tint .section-subtitle { color: #0E1A2B; } .section-wrapper.bg-tint .section-number { color: #7A3838; } .section-wrapper.bg-tint .section-number::before, .section-wrapper.bg-tint .section-number::after { background: rgba(14,26,43,0.3); } .section-wrapper.bg-tint .section-header h2::after { background: #B8935A; } .section-wrapper.bg-tint .investment-intro p { color: #2B3544; }
         /* Investment Areas */
         .investment-areas {
             display: grid;
@@ -320,31 +320,32 @@ h<!DOCTYPE html>
         }
 
         .section-number {
-            font-size: 1.125rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 1rem;
+            color: #7A3838;
+            margin-bottom: 24px;
             display: block;
         }
-
         h2 {
+            font-family: Georgia, "Times New Roman", serif;
             font-size: 4.25rem;
-            font-weight: 700;
-            color: var(--navy);
-            letter-spacing: -0.04em;
+            font-weight: 400;
+            color: #0E1A2B;
+            letter-spacing: -0.03em;
             margin-bottom: 1.5rem;
-            line-height: 1.15;
+            line-height: 1.1;
         }
-
         .section-subtitle {
-            font-size: 1.5rem;
-            color: var(--silver);
-            line-height: 1.7;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.4rem;
+            color: #2B3544;
+            line-height: 1.65;
             font-weight: 400;
         }
-
+        /* About */
         /* About */
         #about {
             background: #F5F1EA;
@@ -523,7 +524,7 @@ h<!DOCTYPE html>
             margin-right: auto;
         }
         .portfolio-card {
-            background: #ffffff;
+            background: #F5F1EA;
             border: 1px solid rgba(26, 26, 77, 0.06);
             border-radius: 2px;
             padding: 3rem 2.5rem;
@@ -768,7 +769,7 @@ h<!DOCTYPE html>
         .team-name {
             font-size: 1.35rem;
             font-weight: 600;
-            color: #ffffff;
+            color: #0E1A2B;
             letter-spacing: -0.02em;
             margin-bottom: 0.35rem;
         }
@@ -1302,7 +1303,7 @@ h<!DOCTYPE html>
     </section>
     </div>
 
-    <div class="section-wrapper bg-tint">
+    <div class="section-wrapper bg-white">
     <!-- Team -->
     <section id="team">
         <div class="section-header">
